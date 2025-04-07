@@ -1,0 +1,94 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #222;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+}
+
+#game-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+}
+
+#game-screen {
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    position: relative;
+    overflow: hidden;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><circle cx="50" cy="50" r="1" fill="white" opacity="0.5"/></svg>');
+    background-size: 200px 200px;
+}
+
+#player {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-image: url('assets/player.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+}
+
+.enemy {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background-image: url('assets/enemy.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 5;
+}
+
+.bullet {
+    position: absolute;
+    width: 5px;
+    height: 15px;
+    background-image: url('assets/bullet.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 8;
+}
+
+.explosion {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-image: url('assets/explosion.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 9;
+    animation: explode 0.5s forwards;
+}
+
+@keyframes explode {
+    0% { transform: scale(0.5); opacity: 1; }
+    100% { transform: scale(1.5); opacity: 0; }
+}
+
+#game-info {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: white;
+    font-size: 20px;
+    z-index: 20;
+}
+
+#game-over {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: red;
+    font-size: 36px;
+    text-align: center;
+    display: none;
+    z-index: 30;
+    text-shadow: 0 0 5px black;
+}
